@@ -2,35 +2,119 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <script type="text/javascript" src="index.js" /></script>
-  <link rel="stylesheet" type="text/css" href="index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Promotion</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 
 <body>
 <header>
-  <nav>
-    <ul>
-      <li>
-        <a class="active" href="index.html">Home</a>
-      </li>
-      <li>
-        <a href="promotion_list.html">Promotion List</a>
-      </li>
-    </ul>
-  </nav>
+    <nav>
+        <ul>
+            <li>
+                <a id="home" class="active">Home</a>
+            </li>
+            <li>
+                <a id="list">Promotion List</a>
+            </li>
+        </ul>
+    </nav>
 </header>
 
 <main>
-  <a href="promotion.html">Create Promotion</a>
+    <section>
+        <a onclick="getPromotion()">Create Promotion</a>
+    </section>
+    <section class="hidden">
+        <label>
+            TYPE:
+            <select id="filter-type" onchange="queryPromotionList()">
+                <option value="ALL">ALL</option>
+                <option value="DISCOUNT">DISCOUNT</option>
+                <option value="REDUCTION">REDUCTION</option>
+            </select>
+            <span onclick="pervPage()">Perv</span>
+            <span id="page">1</span>
+            <span onclick="nextPage()">Next</span>
+        </label>
+        <table>
+            <thead>
+            <td>ID</td>
+            <td>Title</td>
+            <td>StartDate</td>
+            <td>EndDate</td>
+            <td>Type</td>
+            <td>Description</td>
+            </thead>
+            <tbody id="promotion-list">
+            <tr>
+                <td>1</td>
+                <td onclick="getPromotion(1)">Test1</td>
+                <td>2022.10.01</td>
+                <td>2022.11.01</td>
+                <td>DISCOUNT</td>
+                <td>xxx</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
 </main>
 
+<div class="popup hidden">
+    <form action="">
+        <label>
+            <span>Title</span>
+            <input id="title" placeholder="Title">
+        </label>
+        <label>
+            <span>StartDate</span>
+            <input id="start-date" type="datetime-local">
+        </label>
+        <label>
+            <span>EndDate</span>
+            <input id="end-date" type="datetime-local">
+        </label>
+        <label>
+            <span>Active</span>
+            <select id="active" name="active">
+                <option value="1">yes</option>
+                <option value="0">no</option>
+            </select>
+        </label>
+        <label>
+            <span>Description</span>
+            <textarea id="description" rows="10" cols="30"></textarea>
+        </label>
+        <label>
+            <span>VIP</span>
+            <select id="vip" name="vip">
+                <option value="0">no</option>
+                <option value="1">yes</option>
+            </select>
+        </label>
+        <label>
+            <span>Type</span>
+            <select id="type" name="type" onchange="selectType()">
+                <option value="DISCOUNT">DISCOUNT</option>
+                <option value="REDUCTION">REDUCTION</option>
+            </select>
+            <input class="addition">
+            <input class="addition hidden">
+            <input class="addition hidden">
+        </label>
+        <div>
+            <button type="button" onclick="cancel()">Cancel</button>
+            <button type="button" onclick="savePromotion()">Save</button>
+        </div>
+    </form>
+</div>
+
 <footer>
-  <span>@Copy Thoughtworks</span>
+    <span>@Copy Thoughtworks</span>
 </footer>
 </body>
 
+<script type="text/javascript" src="index.js"></script>
 </html>

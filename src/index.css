@@ -14,22 +14,24 @@ ul {
   padding: 0;
   display: flex;
   flex-direction: row;
-  background-color: #B47844;
+  background-color: #BBBBBB;
   justify-content: center;
 }
 
 li > a {
   display: inline-block;
   padding: 20px 40px;
-  color: #FFFFFF;
+  color: #000000;
   text-decoration: none;
+  user-select: none;
 }
 
 li > a:hover {
-  background-color: #283643;
+  cursor: pointer;
 }
 
 .active {
+  color: #FFFFFF;
   background-color: #283643;
 }
 
@@ -42,26 +44,124 @@ main {
   background-color: #EEEEEE;
 }
 
-main > a {
+main a {
   display: block;
   text-decoration: none;
   border-radius: 5px;
-  border: none;
   width: 200px;
   padding: 20px 20px;
   text-align: center;
-  background: linear-gradient(to right, #283643, #B47844);
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  font-size: 18px;
-  color: #EEEEEE;
+  font-size: 20px;
+  color: #000000;
+  user-select: none;
 }
 
 main > a:hover {
-  color: #FFFFFF;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
 }
 
-header {
+main label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+main label:first-child {
+  justify-content: flex-start;
+  margin-left: 20px;
+}
+
+main label:first-child > span {
+  justify-content: flex-end;
+  margin-left: 40px;
+  user-select: none;
+}
+
+main label > select {
+  border: none;
+  background-color: #EEEEEE;
+  display: block;
+  font-size: 22px;
+  height: 50px;
+  width: 200px;
+  padding: 0 20px;
+  user-select: none;
+  margin-left: 20px;
+}
+
+main table {
+  border-collapse: collapse;
+}
+
+thead {
+  font-weight: bold;
+}
+
+td {
+  padding: 20px 40px;
+  border: 1px solid black;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.popup {
+  width: 800px;
+  height: 700px;
+  background-color: rgba(28, 36, 33, 0.1);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -350px;
+  margin-left: -400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid #283643;
+  font-size: 16px;
+}
+
+.popup label {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.popup div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.popup div button {
+  margin: 0 20px;
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.popup label span {
+  width: 120px;
+}
+
+.popup label input,
+.popup label textarea,
+.popup label select {
+  border: none;
+  padding: 10px 20px;
+}
+
+.popup .addition {
+  width: 10px;
+  margin-left: 30px;
 }
 
 footer {
